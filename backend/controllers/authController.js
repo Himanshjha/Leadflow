@@ -11,7 +11,7 @@ const cookieOptions = () => {
     httpOnly: true,
     secure,
     sameSite: secure ? 'none' : 'lax',
-    maxAge: 7 * 24 * 60 * 60 * 1000
+    maxAge: 7 * 24 * 60 * 60 * 1000,
   };
 };
 
@@ -24,7 +24,10 @@ exports.register = async (req, res) => {
 
   const user = await User.create({ name, email, password });
   const token = createToken(user);
-  res.status(201).cookie('token', token, cookieOptions()).json({ id: user._id, name: user.name, email: user.email });
+  res
+    .status(201)
+    .cookie('token', token, cookieOptions())
+    .json({ id: user._id, name: user.name, email: user.email });
 };
 
 exports.login = async (req, res) => {
@@ -38,11 +41,14 @@ exports.login = async (req, res) => {
   if (!ok) return res.status(401).json({ message: 'Invalid credentials' });
 
   const token = createToken(user);
-  res.status(200).cookie('token', token, cookieOptions()).json({ id: user._id, name: user.name, email: user.email });
+  res
+    .status(200)
+    .cookie('token', token, cookieOptions())
+    .json({ id: user._id, name: user.name, email: user.email });
 };
 
 exports.logout = async (req, res) => {
-  res.clearCookie('token', { httpOnly: true, sameSite: 'lax' });
+  res.clearCookie('token', cookieOptions()); // 🔥 reuse same options
   res.json({ message: 'Logged out' });
 };
 
