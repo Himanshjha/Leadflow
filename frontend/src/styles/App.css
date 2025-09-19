@@ -1,0 +1,43 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#6ee7b7;
+  --muted:#9aa6b2;
+  --surface:#0b1220;
+  --danger:#ff6b6b;
+  --glass: rgba(255,255,255,0.03);
+  color-scheme: dark;
+}
+*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+body{margin:0;background:linear-gradient(180deg,#071426 0%, #051025 100%);color:#dce7ef;min-height:100vh;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);}
+.brand{font-weight:700;font-size:20px;color:var(--accent);}
+.container{padding:20px 24px;}
+.auth-page{display:flex;height:80vh;align-items:center;justify-content:center;}
+.auth-card{width:420px;background:var(--card);padding:22px;border-radius:12px;box-shadow:0 6px 28px rgba(2,6,23,0.6);}
+.auth-card h2{margin:0 0 12px;}
+.auth-card label{display:block;margin:8px 0;font-size:13px;color:var(--muted);}
+.auth-card input, .auth-card select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;}
+.btn{background:linear-gradient(90deg,var(--accent), #4fd1c5);border:0;padding:8px 12px;border-radius:8px;color:#04201a;font-weight:600;cursor:pointer;margin:6px;}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);}
+.btn.tiny{padding:6px 8px;font-size:12px;border-radius:6px;}
+.err{background:rgba(255,100,100,0.08);padding:8px;border-radius:6px;color:var(--danger);margin-bottom:8px;}
+.muted{color:var(--muted);font-size:13px;margin-top:10px;}
+.leads-layout{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:10px;padding:12px;}
+.leads-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.filters input, .filters select{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-right:8px;background:transparent;color:inherit;}
+.grid{border-radius:8px;overflow:hidden;}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:10px;color:var(--muted);}
+
+.grid-actions button{margin-right:6px;}
+
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);padding:20px;}
+.modal-card{width:820px;background:var(--surface);padding:16px;border-radius:12px;}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.lead-form .row{display:flex;gap:12px;}
+.lead-form .row label{flex:1;display:block;}
+.lead-form input, .lead-form select{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px;}
+.center{display:flex;align-items:center;justify-content:center;height:80vh;}
+.top-actions{display:flex;gap:12px;align-items:center;}
+.footer{padding:12px 24px;color:var(--muted);font-size:13px;text-align:center;margin-top:18px;}
