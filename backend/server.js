@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://localhost:5173', // frontend URL
+  origin: 'https://leadflow-git-main-himanshu-jhas-projects-f8c5ef3c.vercel.app/', // frontend URL
   credentials: true
 }));
 
