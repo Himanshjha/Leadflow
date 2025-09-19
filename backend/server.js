@@ -14,17 +14,25 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-// CORS setup for frontend (Vercel)
+// ✅ CORS setup for frontend (Vercel + localhost)
 const allowedOrigins = [
- 'https://leadflow-seven.vercel.app',  // production frontend
+  'https://leadflow-seven.vercel.app', // production frontend
   'https://leadflow-q96swivyc-himanshu-jhas-projects-f8c5ef3c.vercel.app', // preview deploy
   'http://localhost:5173' // local dev
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true, // allow cookies
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
