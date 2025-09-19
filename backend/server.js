@@ -16,8 +16,9 @@ app.use(cookieParser());
 
 // CORS setup for frontend (Vercel)
 const allowedOrigins = [
-  'https://leadflow-seven.vercel.app', //  frontend
-  'http://localhost:5173' //  local dev
+ 'https://leadflow-seven.vercel.app',  // production frontend
+  'https://leadflow-q96swivyc-himanshu-jhas-projects-f8c5ef3c.vercel.app', // preview deploy
+  'http://localhost:5173' // local dev
 ];
 
 app.use(
